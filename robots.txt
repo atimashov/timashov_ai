@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://timashov.ai/al-folio/sitemap.xml
+Sitemap: https://timashov.ai/sitemap.xml
