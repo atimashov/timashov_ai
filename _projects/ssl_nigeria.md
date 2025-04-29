@@ -1,10 +1,11 @@
 ---
 layout: page
-title: project 9
-description: another project with an image 🎉
-img: assets/img/6.jpg
-importance: 4
-category: fun
+title: Beyond the code
+description: A day in the life of ML engineer. Besides I gave a master class in Semi-Supervised Learning.
+img: assets/img/7.jpg
+redirect: https://youtu.be/OKF4A8FAjzA
+importance: 1
+category: speaking
 ---
 
 Every project has a beautiful feature showcase page.
