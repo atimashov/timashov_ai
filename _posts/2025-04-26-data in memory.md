@@ -3,7 +3,7 @@ layout: post
 title: "How Computers Store Data in Memory: Brief Intro"
 date: 2025-04-26 09:00:00
 description: fp32, fp16, and more
-tags: pre-dl
+tags: pre-dl, lecture-1
 categories: cs336
 # thumbnail: assets/img/9.jpg
 images:
@@ -48,51 +48,97 @@ We're used to the decimal system; however, the binary system follows the exact s
 
 At the core of computing, we work with a few basic types:
 
-- **Integer (`int`)**: Whole numbers, like `-1`, `0`, `42`.
-- **Floating-point (`float`)**: Numbers with decimals, like `3.14`, `-0.001`.
+- **Integer (`int`)**: Whole numbers like `-17`, `0`, `256`, etc.
+- **Floating-point (`float`)**: Numbers with decimals, like `3.1415` or `-0.00127`.
 - **Boolean (`bool`)**: `True` or `False`, used in logical decisions.
-- **Character (`char`)**: Single characters like `'a'`, `'Z'`, `'#'`.
-- **String (`str`)**: Sequences of characters like `"Hello"`.
+- **Character (`char`)**: Single characters like `'a'`, `'Z'`, `'Я'`, `'+'`.
+- **String (`str`)**: Sequences of characters like `"Capybara likes cuddling"`.
 
-Each type has a size and memory footprint. For example:
+Each type has a pre-allocated size that depends on the programming language and implementation details. For example:
+- `int8` (8-bit integer) has a size of *1 byte* and can represent values between `-128` (`-2^7`) and `127` (`2^7 - 1`).
+- A regular `int` in Python has a size of *28 bytes* — which may seem surprisingly large. This is because Python integers include significant metadata (type, reference counts, etc.) and allocate memory dynamically.
 
-- `int32` (32-bit integer) or `float64` (64-bit floating-point).
+One can check the size of an object `x` in Python with `sys.getsizeof(x)`. However, it measures the full size, **including Python's internal overhead**, which makes pure Python relatively inefficient for data storage and processing. To overcome this, optimized libraries like **NumPy** and **PyTorch** are used. For instance, **NumPy** provides fixed-size types like `int8`, `int16, int32`, etc. We can check the size of a NumPy object (e.g., `x = np.int16(2)`) using `x.nbytes`, which gives the actual payload size.
+
+---
+
+**Strings** are represented using *bytes*, interpreted according to the **character encoding** — the system that maps bits to characters.
+
+**ASCII** (American Standard Code for Information Interchange) uses *one byte per character* and defines 256 symbols (128 in the original standard). For example, the string `"Capybara"` is be encoded in ASCII as `[67, 97, 112, 121, 98, 97, 114, 97]`.
+
+When more characters are needed (such as emojis, Chinese ideograms, or mathematical symbols), modern systems use **Unicode**, which assigns a unique code point to every character. To actually store these code points as *bytes*, **encodings** like **UTF-8**, **UTF-16**, or **UTF-32** are used. In **UTF-8**, each character uses **1 to 4 bytes**, depending on the numerical value of the Unicode code point; and *UTF8* is backward compatible with ASCII. *Version 16.0* of the standard defines *154,998* characters across *168* scripts. 
+
+Understanding Unicode and encoding schemes is critical in areas like **Natural Language Processing (NLP)**, where text from multiple languages must be handled efficiently and reliably.
 
 ---
 
 ## Data Types Used in Deep Learning
 
-Deep learning relies heavily on numerical tensors — multi-dimensional arrays where **type precision** matters for memory and speed.
+**Deep learning** relies almost entirely on **numerical tensors**. Everything — models, inputs, outputs, intermediate activations — is stored as tensors, and most of them are **floating-point based**.
 
-Common types:
+The most common types:
 
-- **`float32`**: 32-bit floating point — standard for most models.
-- **`float16`**: Half-precision — used for faster computation (e.g., NVIDIA Tensor Cores).
-- **`bfloat16`**: Brain Floating Point, optimized for AI workloads.
-- **`int8`**: 8-bit integers — used in quantized models to reduce model size.
+- **`float32`**: Single-precision (32-bit floating point) — the default choice for most models.  
+Drawback: large memory usage (both GPU and RAM). 
+- **`float16`**: Half-precision (16-bit floating point) — used for faster computation and reduced memory footprint.  
+Challenge: lower dynamic range, can cause instability (overflow and underflow). Especially important for larger models. Used much less nowadays.
+- **`bfloat16`**: Brain Floating Point, designed specifically for deep learning.
+It addresses the issue with `float16` - it keeps the larger dynamic range (the same as `float32`), but with reduced fractional precision — better for training stability with less memory. It is **good enough** for forward pass computations.  
+Challenge: for storing optimizer states and parameters, you still need to use `float32`. 
+- **`fp8`**: 8-bit floating point - a very recent innovation, available on NVIDIA `H100` GPUs.  
+Still experimental and not widely adopted.
+- **`int8`**: 8-bit integers — used in quantized models to reduce size and speed up inference.
 
-Choosing the right type can influence model **speed**, **accuracy**, and **training stability**.
+<img src="/assets/img/fp_visual.png" alt="Img.4: Representation of data types in memory" style="width:100%;">
 
----
 
-## Quick Back-of-Envelope Calculation
+#### Floating Point Internals
 
-Suppose you have a tensor with shape `(batch_size=64, channels=3, height=224, width=224)`, typical for an image classification model.
+Floating point formats control the following two things:
+- **Dynamic range**: how far the binary point shifts — **up to 127 positions** in either direction. We subtract a **bias of 127** (binary 01111111) to allow both positive and negative shifts.
+- **Fractional part**: how finely numbers can be distinguished (handled by the mantissa bits).
 
-How much memory would it consume with different types?
+For example:
+- `fp8 E4M3` (4 exponent bits, 3 mantissa bits) can represent numbers like `11110` and `0.0001111` (3+1 meaningful bits).
+- `fp8 E5M2` (5 exponent bits, 2 mantissa bits) can represent `111000` and `0.0000111` (2+1 meaningful bits).
 
-- Number of elements:  
-  `64 × 3 × 224 × 224 = 9,633,792`
+The value of `float32` number is calculated as (IEEE 754):
+
+$$
+N = (-1)^{b_{31}} \times 2^{(b_{30}b_{29} \dots b_{23})_2-127} \times (1.b_{22}b_{21} \dots b_0)_2
+$$
+
+We can also write the exponent part in binary directly (more intuitive, if we compare with decimal logic):
+
+$$
+N = (-1)^{b_{31}} \times 2^{(b_{30}b_{29} \dots b_{23})-01111111} \times (1.b_{22}b_{21} \dots b_0)
+$$
+
+#### Quick Back-of-Envelope Calculation
+
+Suppose we have a tensor `x` with shape `(batch_size=32, channels=3, height=224, width=224)`, typical for an image recognition model.
+
+How much memory would this tensor consume with different types?
+
+- Number of elements (`x.numel()` in **PyTorch**):  
+  `32 × 3 × 224 × 224 = 4,816,896`
 
 - Memory usage:
   - `float32` (4 bytes per value):  
-    `9,633,792 × 4 = ~38.5 MB`
+    `4,816,896 × 4 = ~ 18.4 MB`
   - `float16` (2 bytes per value):  
-    `9,633,792 × 2 = ~19.2 MB`
+    `4,816,896 × 2 = ~ 9.2 MB`
   - `int8` (1 byte per value):  
-    `9,633,792 × 1 = ~9.6 MB`
+    `4,816,896 × 1 = ~ 4.8 MB`
 
-**Notice** how changing the data type immediately halves or quarters the memory footprint.
+**Notice** Changing the data type immediately halves or quarters the memory footprint.
+
+---
+
+Choosing the right type has a huge impact on model **speed**, **memory usage**, and **training stability**. 
+- Training with `float32` is safe but memory-hungry.
+- Switching to `float16`, `fp8`, and `bfloat16` saves memory and speeds up computation, but introduces **training instability**. 
+- Solution: to use **mixed precision** — selectively combining different types to balance memory usage and training stability.
 
 ---
 
@@ -101,28 +147,5 @@ How much memory would it consume with different types?
 Understanding data types is the foundation of building efficient AI systems.  
 It affects not only how we design models but also how fast and how large they can be.
 
-In future posts, we'll dive deeper into **precision trade-offs** and **mixed-precision training** strategies.
-
-
-
-
-## Image Slider
-
-This is a simple image slider. It uses the [Swiper](https://swiperjs.com/) library. Check the [examples page](https://swiperjs.com/demos) for more information of what you can achieve with it.
-
-<swiper-container keyboard="true" navigation="true" pagination="true" pagination-clickable="true" pagination-dynamic-bullets="true" rewind="true">
-  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/9.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
-  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/7.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
-  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/8.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
-  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/10.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
-  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/12.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
-</swiper-container>
-
-## Image Comparison Slider
-
-This is a simple image comparison slider. It uses the [img-comparison-slider](https://img-comparison-slider.sneas.io/) library. Check the [examples page](https://img-comparison-slider.sneas.io/examples.html) for more information of what you can achieve with it.
-
-<img-comparison-slider>
-  {% include figure.liquid path="assets/img/prof_pic.jpg" class="img-fluid rounded z-depth-1" slot="first" %}
-  {% include figure.liquid path="assets/img/prof_pic_color.png" class="img-fluid rounded z-depth-1" slot="second" %}
-</img-comparison-slider>
+In future posts, I’ll dive deeper into **resource accounting** — covering both **memory** and **FLOPS**.
+For memory, I’ll go beyond inputs to include gradients, intermediate activations, and other internal components of deep learning models.
