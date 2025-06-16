@@ -1,18 +1,18 @@
 {
   "basics": {
-    "name": "Albert Einstein",
-    "label": "Scientist",
+    "name": "Aleksandr Timashov",
+    "label": "AI Engineer",
     "image": "",
-    "email": "albert@einstein.de",
-    "phone": "(912) 123-4567",
-    "url": "https://alshedivat.github.io/al-folio/",
-    "summary": "A German-born theoretical physicist, widely ranked among the greatest and most influential scientists of all time",
+    "email": "aleks.k.tim@gmail.com",
+    // "phone": "(912) 123-4567",
+    "url": "timashov.ai",
+    "summary": "A childhood mathematician from a quiet Soviet town — now an AI Engineer focused on applying AI to improve real-world systems and everyday life.",
     "location": {
-      "address": "2712 Broadway St",
-      "postalCode": "CA 94115",
-      "city": "San Francisco",
-      "countryCode": "US",
-      "region": "California"
+      // "address": "2712 Broadway St",
+      // "postalCode": "CA 94115",
+      "city": "London",
+      "countryCode": "UK"
+      // "region": "California"
     },
     "profiles": [
       {
@@ -24,25 +24,34 @@
   },
   "work": [
     {
-      "name": "Institute for Advanced Study, Princeton University",
-      "position": "Professor of Theoretical Physics",
-      "url": "https://example.com",
-      "startDate": "1933-01-01",
-      "endDate": "1955-01-01",
-      "summary": "Teaching at Palmer Physical Laboratory (now 302 Frist Campus Center). While not a professor at Princeton, I associated with the physics professors and continued to give lectures on campus.",
-      "highlights": ["Relativity"]
+      "name": "Meta, London (UK)",
+      "position": "Machine Learning Engineer",
+      // "url": "https://example.com",
+      "startDate": "2025-03-31",
+      "endDate": "2022-10-03",
+      "summary": "I built high-precision multimodal classifiers to protect and enhance the experience of 2B+ users; in parallel, I contributed to LLaMA’s math reasoning and optimized eye-tracking for Meta Quest.",
+      "highlights": ["Ai", "LLMs", "Compute Vision", "GenAI"]
+    },
+    {
+      "name": "Petronas",
+      "position": "Head of Data Science (Computer Vision)",
+      // "url": "https://example.com",
+      "startDate": "2019-11-01",
+      "endDate": "2022-06-30",
+      "summary": "I built Petronas’ first dedicated Computer Vision team, growing it from 0 to 12 engineers, established best practices, scaled CV adoption across subsidiaries, and led company-wide AI transformation",
+      "highlights": ["AI", "Compute Vision"]
     }
   ],
   "volunteer": [
     {
-      "organization": "People's Climate March",
+      "organization": "Stanford Engineering Center for Global & Online Education",
       "location": "Zurich, Switzerland",
-      "position": "Lead Organizer",
-      "url": "https://example.com",
+      "position": "Course Facilitator",
+      "url": "https://cgoe.stanford.edu/",
       "startDate": "2014-04-01",
       "endDate": "2015-07-01",
-      "summary": "Lead organizer for the New York City branch of the People's Climate March, the largest climate march in history.",
-      "highlights": ["Awarded 'Climate Hero' award by Greenpeace for my efforts organizing the march.", "Men of the year 2014 by Time magazine"]
+      "summary": "Facilitated Stanford’s “Machine Learning with Graphs” course (XCS224W), supporting professionals globally with personalized technical instruction through the AI Professional Program.",
+      "highlights": []
     }
   ],
   "education": [
@@ -58,7 +67,7 @@
       "courses": ["Theory of Relativity"]
     }
   ],
-  "awards": [
+  "leadership": [
     {
       "title": "Nobel Prize in Physics",
       "date": "1921-11-01",
@@ -151,7 +160,7 @@
   ],
   "languages": [
     {
-      "language": "German",
+      "language": "Russian",
       "fluency": "Native speaker",
       "icon": ""
     },
@@ -159,7 +168,13 @@
       "language": "English",
       "fluency": "Fluent",
       "icon": ""
+    },
+    {
+      "language": "Portuguese",
+      "fluency": "Basic",
+      "icon": ""
     }
+
   ],
   "interests": [
     {

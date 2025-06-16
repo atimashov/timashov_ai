@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "How Computers Store Data in Memory: Brief Intro"
-date: 2025-04-26 09:00:00
+date: 2025-06-26 09:00:00
 description: fp32, fp16, and more
 tags: pre-dl, lecture-1
 categories: cs336
@@ -66,7 +66,7 @@ One can check the size of an object `x` in Python with `sys.getsizeof(x)`. Howev
 
 **ASCII** (American Standard Code for Information Interchange) uses *one byte per character* and defines 256 symbols (128 in the original standard). For example, the string `"Capybara"` is be encoded in ASCII as `[67, 97, 112, 121, 98, 97, 114, 97]`.
 
-When more characters are needed (such as emojis, Chinese ideograms, or mathematical symbols), modern systems use **Unicode**, which assigns a unique code point to every character. To actually store these code points as *bytes*, **encodings** like **UTF-8**, **UTF-16**, or **UTF-32** are used. In **UTF-8**, each character uses **1 to 4 bytes**, depending on the numerical value of the Unicode code point; and *UTF8* is backward compatible with ASCII. *Version 16.0* of the standard defines *154,998* characters across *168* scripts. 
+When more characters are needed (such as emojis, Chinese ideograms, or mathematical symbols), modern systems use **Unicode**, which assigns a unique code point to every character. To actually store these code points as *bytes*, **encodings** like **UTF-8**, **UTF-16**, or **UTF-32** are used. In **UTF-8**, each character uses **1 to 4 bytes**, depending on the numerical value of the Unicode code point; and *UTF8* is backward compatible with ASCII. *Version 16.0* of the standard defines * 154,998* characters across *168* scripts. 
 
 Understanding Unicode and encoding schemes is critical in areas like **Natural Language Processing (NLP)**, where text from multiple languages must be handled efficiently and reliably.
 

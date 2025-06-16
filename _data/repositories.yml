@@ -1,14 +1,12 @@
 github_users:
-  - torvalds
-  - alshedivat
+  - atimashov
 
 repo_description_lines_max: 2
 
 github_repos:
-  - alshedivat/al-folio
-  - jekyll/jekyll
-  - twbs/bootstrap
-  - jquery/jquery
-  - FortAwesome/Font-Awesome
-  - mathjax/MathJax
-  - jpswalsh/academicons
+  - atimashov/cnn_live_training
+  - atimashov/object_detection
+  - atimashov/Natural_Language_Processing
+  - atimashov/cxr-report-generation
+  - atimashov/project_cs236
+  - atimashov/cs231n_conditional_sde

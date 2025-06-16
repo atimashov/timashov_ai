@@ -2,96 +2,128 @@
   type: map
   contents:
     - name: Full Name
-      value: Albert Einstein
+      value: Aleksandr Timashov
     - name: Date of Birth
-      value: 14th March 1879
+      value: 10th August 1985
     - name: Languages
-      value: English, German
-
-- title: Education
-  type: time_table
-  contents:
-    - title: PhD
-      institution: University of Zurich, Zurich, Switzerland
-      year: 1905
-      description:
-        - Description 1.
-        - Description 2.
-        - title: Description 3.
-          contents:
-            - Sub-description 1.
-            - Sub-description 2.
-    - title: Federal teaching diploma
-      institution: Eidgenössische Technische Hochschule, Zurich, Switzerland
-      year: 1900
-      description:
-        - Description 1.
-        - Description 2.
+      value: Russian, English, Portuguese (Basic)
 
 - title: Experience
   type: time_table
   contents:
-    - title: Professor of Theoretical Physics
-      institution: Institute for Advanced Study, Princeton University
-      year: 1933 - 1955
+    - title: Machine Learning Engineer
+      institution: Facebook (Meta), London, UK
+      year: 10.2022 - 03.2025
       description:
-        - Description 1.
-        - Description 2.
-        - title: Description 3.
+        - Developed a multi-class ad policy violation classifier (50+ classes), increasing <strong>precision from 60% to 91%</strong> and reducing harmful ad exposure for <strong>2B+ daily users</strong>.
+        - Built multiple AI detectors for malicious Chrome extensions, achieving over <strong>95% precision at 50% recall</strong>.
+        - On my own initiative, improved LLaMA’s mathematical reasoning accuracy <strong>by 2%</strong>.
+        - On my own initiative, optimised Meta Quest’s eye-tracking algorithm achieving a <strong>1% mAP improvement</strong>, enhancing gaze estimation and user experience across millions of devices.
+    
+    - title: Computer Vision Engineering Lead
+      institution: Petronas Bhd, Kuala Lumpur, Malaysia
+      year: 2019-2022
+      description:
+        - title: Established Petronas’ <strong>First CV Team</strong> & Scaled AI Adoption.
           contents:
-            - Sub-description 1.
-            - Sub-description 2.
-    - title: Visiting Professor
-      institution: California Institute of Technology, Pasadena, California, US
-      year: 1933
+            - Built and led Petronas’ first Computer Vision team, growing it to <strong>12 ML engineers</strong>.
+            - Organised and led the internal Data Science Academy, training <strong>100+ professionals in AI/ML</strong>.
+            - Drove AI adoption across Petronas’ <strong>10,000+</strong> workforce through the Citizen Analytics program.
+        - title: Optimized Security Manpower with AI-Driven Video Analytics.
+          contents:
+            - Led full deployment, including Linux-based server setup, optimizing manpower by <strong>∼30%</strong>.
+            - Built and deployed real-time surveillance automation across <strong>hundreds of cameras</strong> for Petronas Twin Towers & KLCC.
+            - Developed CNN-based tracking models, and graph-based crowd analysis.
+        - title: Automated Industrial Inspections Enterprise-wide.
+          contents:
+            - Scaled the system to <strong>30+ plants</strong>, cutting costs by <strong>more than $10M annually</strong> and saving 30K labour hours.
+            - Designed and deployed PISARES SIMS, an AI-powered drone and OCR-based inspection system.
+            - Developed AI models for defect detection (corrosion, cracks, etc.) and engineering drawing digitization.
+            - Mentored engineers in implementing AI models using PyTorch, ensuring sustainable AI adoption.
+        - title: Optimised AI for Transport Safety
+          contents:
+            - Reduced AI model size from 1GB to 50MB (<strong>20x compression</strong>) while maintaining accuracy and transferring knowledge to the team.
+            - Enabled real-time in-vehicle deployment across <strong>hundreds of Petronas’ fleet vehicles</strong>.
+
+    - title: Director of Data Science
+      institution: Entropia Global, Kuala Lumpur, Malaysia
+      year: 03.2019-10.2019
       description:
-        - Description 1.
-        - Description 2.
+        - Built and mentored a data science team, establishing best practices for AI-driven decision-making.
+        - Led AI and ML initiatives, including clustering, regression, and classification models.
+        - Designed and implemented an analytics platform integrating internal and external data for real-time insights.
 
-    - title: Director
-      institution: Kaiser Wilhelm Institute for Physics, Berlin, Germany.
-      year: 1917-1933
-
-    - title: Professor of Theoretical Physics
-      institution: Karl-Ferdinand University, Prague, Czechoslovakia
-      year: 1911 - 1917
+    - title: Machine Learning Engineer
+      institution: Omnilytics, Kuala Lumpur, Malaysia
+      year: 01.2018-02.2019
       description:
+        - Built feature comparing <strong>10M products</strong> to extract matches in real-time by developing Deep Learning models.
+        - Built and deployed APIs using Flask to enhance analytic dashboard functionalities.
+        - Optimised ML pipelines for scalability, improving performance in large-scale data processing.
 
-    - title: Associate Professor of Theoretical Physics
-      institution: University of Zurich, Zurich, Switzerland
-      year: 1909 - 1911
+    - title: Machine Learning Engineer
+      institution: Freelance, Russia
+      year: 05.2015 - 12.2017
+      description:
+        - Developed an <strong>AI-driven trading robot</strong>, integrating ML strategies with broker APIs.
+        - Designed and implemented a <strong>risk evaluation system</strong> for financial companies <strong>across Asia</strong> using Python.
 
-- title: Open Source Projects
+    - title: FC Otkritie
+      institution: Multiple roles related to ML, Russia
+      year: 05.2012 - 04.2015
+      description:
+        - Developed and implemented scoring models using SAS and R.
+        - Developed portfolio management strategies based on scoring models.
+
+- title: Education
   type: time_table
   contents:
-    - title: <a href="https://github.com/alshedivat/al-folio">al-folio</a>
-      year: 2015-now
-      description: A beautiful, simple, clean, and responsive Jekyll theme for academics.
+    - title: Graduate Certificate in Artificial Intelligence
+      institution: Stanford University, California, USA
+      year: 09.2021-12.2023
+      description:
+        - Natural Language Processing with Deep Learning
+        - Deep Learning for Computer Vision
+        - Machine Learning with Graphs
+        - Deep Generative Models
+        - Deep Multi-Task and Meta Learning
+        - Probabilistic Graphical Models
+    - title: Bachelor's Degree 
+      institution: Indiana University, Indiana, USA
+      year: 01.2020-08.2021
+      description:
+        - GPA is 3.96
 
-- title: Honors and Awards
+- title: Volunteering
   type: time_table
   contents:
-    - year: 1921
-      items:
-        - Nobel Prize in Physics
-        - Matteucci Medal
-    - year: 2029
-      items:
-        - Max Planck Medal
+    - title: Course Facilitator for Professional Program in AI
+      institution: Stanford Engineering Center for Global & Online Education
+      year: 10.2024-06.2025
+      description: "Facilitated Stanford’s “Machine Learning with Graphs” course (XCS224W), supporting professionals globally with personalized technical instruction through the AI Professional Program."
+
+- title: Leadership and Awards
+  type: time_table
+  contents:
+    - year: 2000-2002
+      items: 
+        - Two times prize-winner of the federal districts stage competed in mathematics (high school)
 
 - title: Academic Interests
-  type: nested_list
+  type: list # nested_list
   contents:
-    - title: Topic 1.
-      items:
-        - Description 1.
-        - Description 2.
-    - title: Topic 2.
-      items:
-        - Description 1.
-        - Description 2.
+    - Computer Vision
+    - Natural Language Processing
+    - Generative AI
+    - Efficient Deep Learning
+    # - title: To improve level of life using AI Agents
+    #   items: 
+    #     - Computer Vision
+    #     - Natural Language Processing
+    #     - Generative AI
+    #     - Efficient Deep Learning
 
 - title: Other Interests
   type: list
   contents:
-    - <u>Hobbies:</u> Hobby 1, Hobby 2, etc.
+    - <strong>Hobbies:</strong> Diving, Workout, Travel.

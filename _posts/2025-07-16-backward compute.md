@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Backpropagation: From Intuition to FLOPs"
-date: 2025-04-28 09:00:00
+date: 2025-07-16 09:00:00
 description: gradient calculation, flow and FLOPs
 tags: dl-basics, lecture-1
 categories: cs336
@@ -21,7 +21,7 @@ The next step in deep learning is computing **gradients** and making an optimize
 
 Let's look at a simple example: $y=0.5 \times (x \times w-5)^2$.  
 **Forward pass:** compute loss
-```
+```python
 x = torch.Tensor([1.0, 2.0, 3.0]) # we don't need gradients
 w = torch.Tensor([1.0, 1.0, 1.0], requres_grad = True) # we need gradients
 pred_y = x @ w
@@ -29,7 +29,7 @@ loss  = 0.5 * (pred_y - 5).pow(2)
 ```
 
 **Backward pass:** compute gradients
-```
+```python
 loss.backward()
 assert loss.grad is None
 assert pred_y.grad is None

@@ -1,17 +1,20 @@
 ---
 layout: about
-title: about
+title: About
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Motto. Etc.
+subtitle: |+
+  <strong>AI Research Engineer</strong> | 🇬🇧 Global Talent |  🇺🇸 EB1-A (Extraordinary Ability) <br>
+  Focusing on <strong>LLMs</strong>,  <strong>Computer Vision</strong>, and <strong>Diffusion Models</strong>. <br>
+  Facilitator at <a href="https://online.stanford.edu/programs/artificial-intelligence-professional-program">Stanford’s Professional AI Program</a>. Building practical tools from cutting-edge AI research.
 
 profile:
-  align: right
-  image: prof_pic.jpg
+  align: left
+  image: main_pic.jpeg
   image_circular: false # crops the image to make it circular
-  more_info: >
-    <p>555 your office number</p>
-    <p>123 your address street</p>
-    <p>Your City, State 12345</p>
+  # more_info: >
+  #   <p>555 your office number</p>
+  #   <p>123 your address street</p>
+  #   <p>Your City, State 12345</p>
 
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
@@ -27,8 +30,21 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
+**Currently:**  
+<!-- Hi, I’m Aleksandr — an AI Research Engineer focused on applied research at the intersection of **LLMs**, and **Computer Vision**.  -->
+After impactful years at Meta and Petronas, I’m now focused on self-directed innovation, supporting Stanford’s Professional Program in AI, and sharing insights through technical blogs, conferences, and open-source projects.  
+I actively prototype ideas in vision-language models, diffusion models, and efficient deep learning — aiming to contribute both practical tools and research-driven insights. My broader goal is to apply AI research to build scalable, ethical, and high-impact systems.
 
-Put your address / P.O. box / other info right below your picture. You can also disable any of these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
+**Earlier:**  
+Over the past decade, I’ve delivered real-world AI impact at global scale.  
+At **Meta**, I built AI models to detect malicious Chrome extensions and enforce ad policy compliance, protecting over **2 billion users** across Meta platforms.  
+At **Petronas**, I founded the company's **first Computer Vision team**, deploying AI for industrial inspections and surveillance automation, reducing costs by millions of dollars annually and caling across multiple of plants.
 
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](https://fontawesome.com/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+
+<br>
+**Education:**  
+I hold a Graduate Certificate in Artificial Intelligence from **Stanford University**, where I completed MS/PhD-level courses.  
+Previously, I earned a **B.Sc. in Mathematics** from Indiana University with a GPA of 3.96 and was named to the [**Chancellor’s List**](https://news.iu.edu/east/live/news/36493-iu-east-announces-chancellors-list-for-spring-2021).  
+In high school, I achieved top rankings in Russian **math olympiads**, earning multiple awards at the regional and the federal levels.
+
+Open to research collaborations, advising startups, or pushing ideas into prototypes.
