@@ -19,7 +19,7 @@
         - Built multiple AI detectors for malicious Chrome extensions, achieving over <strong>95% precision at 50% recall</strong>.
         - On my own initiative, improved LLaMA’s mathematical reasoning accuracy <strong>by 2%</strong>.
         - On my own initiative, optimised Meta Quest’s eye-tracking algorithm achieving a <strong>1% mAP improvement</strong>, enhancing gaze estimation and user experience across millions of devices.
-    
+
     - title: Computer Vision Engineering Lead
       institution: Petronas Bhd, Kuala Lumpur, Malaysia
       year: 2019-2022
@@ -88,7 +88,7 @@
         - Deep Generative Models
         - Deep Multi-Task and Meta Learning
         - Probabilistic Graphical Models
-    - title: Bachelor's Degree 
+    - title: Bachelor's Degree
       institution: Indiana University, Indiana, USA
       year: 01.2020-08.2021
       description:
@@ -106,7 +106,7 @@
   type: time_table
   contents:
     - year: 2000-2002
-      items: 
+      items:
         - Two times prize-winner of the federal districts stage competed in mathematics (high school)
 
 - title: Academic Interests
@@ -117,7 +117,7 @@
     - Generative AI
     - Efficient Deep Learning
     # - title: To improve level of life using AI Agents
-    #   items: 
+    #   items:
     #     - Computer Vision
     #     - Natural Language Processing
     #     - Generative AI

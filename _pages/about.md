@@ -31,7 +31,6 @@ latest_posts:
 ---
 
 **Currently:**  
-<!-- Hi, I’m Aleksandr — an AI Research Engineer focused on applied research at the intersection of **LLMs**, and **Computer Vision**.  -->
 After impactful years at Meta and Petronas, I’m now focused on self-directed innovation, supporting Stanford’s Professional Program in AI, and sharing insights through technical blogs, conferences, and open-source projects.  
 I actively prototype ideas in vision-language models, diffusion models, and efficient deep learning — aiming to contribute both practical tools and research-driven insights. My broader goal is to apply AI research to build scalable, ethical, and high-impact systems.
 
@@ -39,7 +38,6 @@ I actively prototype ideas in vision-language models, diffusion models, and effi
 Over the past decade, I’ve delivered real-world AI impact at global scale.  
 At **Meta**, I built AI models to detect malicious Chrome extensions and enforce ad policy compliance, protecting over **2 billion users** across Meta platforms.  
 At **Petronas**, I founded the company's **first Computer Vision team**, deploying AI for industrial inspections and surveillance automation, reducing costs by millions of dollars annually and caling across multiple of plants.
-
 
 <br>
 **Education:**  

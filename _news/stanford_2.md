@@ -7,4 +7,3 @@ related_posts: false
 
 I am invited to facilitate Stanford’s XCS224W "Machine Learning with Graphs" course again.  
 Happy to support professionals globally.
-
