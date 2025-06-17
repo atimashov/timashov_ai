@@ -198,7 +198,7 @@ for pretoken in re.finditer(self.PAT, fragm):
     utf8_bytes = tuple(b[i:i+1] for i in range(len(b)))
     # utf8_bytes = tuple(b) # for index-based (ID) representation
 ```
-In practice, **index-based representation** speeds up the pre-tokenization, while **byte-based representation** offers cleaner logic and better performance during the merge step. For offline tokenizer training with parallelism, the overall time difference is negligible. 
+In practice, **index-based representation** speeds up the **pre-tokenization step by ~2x**, but it requires carefully starting the vocabulary at the 256 predefined byte IDs. Meanwhile **byte-based representation** offers cleaner logic and better performance during the merge step due to necessity of additional access to vocabulary (**~2.5x**). For offline training with parallelism, the **total runtime** ends up slightly lower for **byte-based implementations**.
 
 ### Learning Merge Rules
 The naive implementation of token merging in BPE looks like this:
@@ -235,6 +235,7 @@ Each **training step** includes:
 
 ```python
 best_pair, best_pair_cnt = max(self.pairs_cnt.items(), key=lambda x: (x[1], x[0]))
+# best_pair, best_pair_cnt = max(self.pairs_cnt.items(), key=lambda x: (x[1], (self.vocab[x[0][0]], self.vocab[x[0][1]]))) # for index-based (ID) representation (~2.5x slower)
 # update merges
 self.merges.append(best_pair)
 # update vocabulary
@@ -290,6 +291,13 @@ Not all byte sequences correspond to valid UTF-8 strings. To handle decoding fai
 
 ## Conclusion
 - Tokenization is a core step in preparing text for Deep Learning.
--	BPE combines efficiency and flexibility by merging frequent byte-pairs into meaningful subword units.
--	My implementation supports special tokens, parallel pre-tokenization, and a scalable, targeted merging strategy.
--	To handle large inputs efficiently, I added a streaming `encode_iterable()` function for memory-safe tokenization.
+- BPE combines efficiency and flexibility by merging frequent byte-pairs into meaningful subword units.
+- My implementation supports special tokens, parallel pre-tokenization, and a scalable, targeted merging strategy.
+- To handle large inputs efficiently, I added a streaming `encode_iterable()` function for memory-safe tokenization.
+
+**Performance note:**
+Benchmarks were run on an **AMD Ryzen Threadripper 7960X (24 cores)** using the **TinyStories** dataset:
+- Byte-based pre-tokenization: **~395s (1 core)** -> **~18.5s (24 cores)**
+- Index-based pre-tokenization: **~216s (1 core)** -> **~10.6s (24 cores)**
+- Byte-based training (10K vocab): **~23.8s**
+- Index-based training (10K vocab): **~59.5s**
