@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "How Computers Store Data in Memory: Brief Intro"
-date: 2025-06-25 09:00:00
+date: 2025-07-01 09:00:00
 description: fp32, fp16, and more
 tags: pre-dl, lecture-1
 categories: cs336
