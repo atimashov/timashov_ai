@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Backpropagation: From Intuition to FLOPs"
-date: 2025-07-16 09:00:00
+date: 2025-07-24 05:00:00
 description: gradient calculation, flow and FLOPs
 tags: dl-basics, lecture-1
 categories: cs336
@@ -23,7 +23,7 @@ Let's look at a simple example: $y=0.5 \times (x \times w-5)^2$.
 **Forward pass:** compute loss
 ```python
 x = torch.Tensor([1.0, 2.0, 3.0]) # we don't need gradients
-w = torch.Tensor([1.0, 1.0, 1.0], requres_grad = True) # we need gradients
+w = torch.Tensor([1.0, 1.0, 1.0], requires_grad = True) # we need gradients
 pred_y = x @ w
 loss  = 0.5 * (pred_y - 5).pow(2)
 ```
@@ -127,7 +127,7 @@ $$\frac{dz}{dx} = \frac{dz}{dy} \frac{dy}{dx}$$
 #### <u>Gradient with respect to H₂</u>
 Now that we’ve defined the loss, the first step in the backward pass is to compute the gradient of the loss with respect to the model's output, ***H₂***:
 
-$$\frac{\text{dloss}}{dh^{(2)}_{ij}}=\frac{1}{BC}\cdot 2 \cdot dh^{(2)}_{ij} \quad \text{(Only one tem of the sum depends on } h^{(2)}_{ij} \text{)}$$
+$$\frac{\text{dloss}}{dh^{(2)}_{ij}}=\frac{1}{BC}\cdot 2 \cdot dh^{(2)}_{ij} \quad \text{(Only one term of the sum depends on } h^{(2)}_{ij} \text{)}$$
 
 Or in matrix form:
 
@@ -195,7 +195,8 @@ This is exactly $2\times$ **the number of FLOPs** compared to the forward pass.
 ## Conclusion
 - **Understanding the math** behind helps in debugging, optimizing, and designing new architectures.
 - The **backward pass** is built on the **chain rule**, propagated layer by layer.
-- Backward pass requires **~2x the GLOPs** of the forward pass.
+- Backward pass requires **~2x the FLOPs** of the forward pass.
+
 <!-- Understanding data types is the foundation of building efficient AI systems.  
 It affects not only how we design models but also how fast and how large they can be.
 
