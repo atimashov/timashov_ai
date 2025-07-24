@@ -15,7 +15,7 @@ This post dives into what happens during the backward pass of a neural network.
 We’ll start with a simple scalar example and build up to full matrix-based gradient derivations — showing not only how gradients are computed, but also how to count **FLOPs** along the way.
 
 ## Introduction
-In the previous [post](timashov.ai/blog/2025/compute/) I covered how to construct tensors and pass them through operations - this is known as the "forward pass".
+In the previous [post](https://timashov.ai/blog/2025/compute/) I covered how to construct tensors and pass them through operations - this is known as the "forward pass".
 
 The next step in deep learning is computing **gradients** and making an optimizer step - the **backward pass**.
 
