@@ -127,7 +127,7 @@ $$\frac{dz}{dx} = \frac{dz}{dy} \frac{dy}{dx}$$
 #### <u>Gradient with respect to H₂</u>
 Now that we’ve defined the loss, the first step in the backward pass is to compute the gradient of the loss with respect to the model's output, ***H₂***:
 
-$$\frac{\text{dloss}}{dh^{(2)}_{ij}}=\frac{1}{BC}\cdot 2 \cdot dh^{(2)}_{ij} \quad \text{(Only one term of the sum depends on } h^{(2)}_{ij} \text{)}$$
+$$\frac{\text{dloss}}{dh^{(2)}_{ij}}=\frac{1}{BC}\cdot 2 \cdot h^{(2)}_{ij} \quad \text{(Only one term of the sum depends on } h^{(2)}_{ij} \text{)}$$
 
 Or in matrix form:
 
