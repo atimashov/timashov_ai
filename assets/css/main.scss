@@ -23,3 +23,31 @@ $max-content-width: {{ site.max_width }};
   "tabler-icons/tabler-icons-filled.scss",
   "tabler-icons/tabler-icons-outline.scss"
 ;
+
+/* ---------------------------------
+   Custom Table Styling
+---------------------------------- */
+table.pretty {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+  line-height: 1.2;       /* tighter vertical spacing */
+  margin: 1em 0;
+}
+
+table.pretty th,
+table.pretty td {
+  padding: 4px 8px;       /* reduced cell padding */
+  border-bottom: 1px solid #ddd; /* light grey separators */
+  font-size: 0.9em;       /* slightly smaller text */
+}
+
+table.pretty th {
+  background-color: #f8f8f8;
+  color: #333;
+  font-weight: 600;
+}
+
+table.pretty tr:hover {
+  background-color: #f9f9f9;
+}
