@@ -3,8 +3,8 @@ layout: post
 title: "LLM From Scratch: Building TinyGPT that works"
 date: 2025-10-05 09:00:00
 description: Transformer Components, Variants, Implementation Details
-tags: dl, lecture-3
-categories: cs336
+tags: dl llms
+categories: llms_from_scratch
 # thumbnail: assets/img/9.jpg
 images:
   compare: true
