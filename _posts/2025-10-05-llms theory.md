@@ -1682,6 +1682,30 @@ Below: convergence comparison with different initialization std values for token
 
 Initialization scale turned out to be one of the most sensitive hyperparameters for stable convergence.
 
+#### Generation example
+Below is an example of text generation from a model trained on the **TinyStories** dataset:
+
+```
+Prompt: 
+"Once upon a time"
+
+Generation:
+" , there was a little girl named Lucy. She loved to visit her aunt who lived in a small house. One day, Lucy went to visit her aunt and uncle. They had a big, red door that she used to keep her house safe.
+When Lucy went inside, she saw her aunt waiting for her. She gave her a big hug and said, 'Thank you, Lucy, for coming to visit me!' Her aunt smiled and said, "You're welcome, Lucy. I hope you enjoy your visit."
+From that day on, Lucy visited her aunt every day. They played games, ate yummy food, and had lots of fun together. And they all lived happily ever after."
+```
+
+**Model configuration:**
+* **Embedding dimenson:** $$d_{\text{model}} = 512$$
+* **FFN hidden dimension:** $$d_{\text{ff}} = 1344$$ (or $$\approx \tfrac{8}{3} d_{\text{model}}$$)
+* **Number of layers:** $$N_{\text{layers}} = 4$$
+* **Number of heads:** $$N_{\text{heads}} = 16$$
+* **Context length:** $$256$$
+* **Activation:** SwiGLU
+* **Initialization:** Xavier
+* **Normalization:** Post-layer
+* **Weight tying:** Disabled
+
 ---
 
 ## Conclusion & Next Steps
