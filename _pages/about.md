@@ -32,7 +32,7 @@ latest_posts:
 
 **Currently:**  
 After impactful years at Meta and Petronas, I’m now focused on self-directed innovation, supporting Stanford’s Professional Program in AI, and sharing insights through technical blogs, conferences, and open-source projects.  
-I actively prototype ideas in vision-language models, diffusion models, and efficient deep learning — aiming to contribute both practical tools and research-driven insights. My broader goal is to apply AI research to build scalable, ethical, and high-impact systems.
+I actively prototype ideas in vision-language models, and efficient deep learning — aiming to contribute both practical tools and research-driven insights. My broader goal is to apply AI research to build scalable, ethical, and high-impact systems.
 
 **Earlier:**  
 Over the past decade, I’ve delivered real-world AI impact at global scale.  
